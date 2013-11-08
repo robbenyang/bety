@@ -31,11 +31,16 @@
         </div>
       </div>
       <div class="row">
-        <div class="sixteen colunms alpha"><!--not what I want-->
+        <div class="twelve columns alpha">
           <%= f.label :parent %><br />
-          <%= f.select :parent_id, Input.all.collect { |p| [ p.select_default, p.id ] }, {:include_blank => true} %>
+          <%= f.select :parent_id, Input.all.collect { |p| [ p.select_default, p.id ] }, { :include_blank => true } %>
         </div>
       </div>
+
+
+
+
+     
       <div class="row">
         <div class="eight columns alpha">
           <%= f.label :start_date %><br />
@@ -55,6 +60,7 @@
           <%= f.label :format_id %><br />
           <%= f.select :format_id, Format.all.collect { |p| [p.select_default, p.id ] }, :include_blank => true %>
         </div>
+      </div>
         <h2>Associated Files</h2>
         <%= link_to 'New File', new_dbfile_path %>
         <p>
