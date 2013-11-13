@@ -1,63 +1,51 @@
-<p>
-  <b>Model:</b>
-  <%= link_to_if @run.model, @run.model, @run.model %>
-</p>
+<div class="content">
+	<div class="container">
+		<div class="sixteen columns">
+			<header>
+				<h1 align="center">Viewing Run</h1>
+			</header>
+			<dl class="dl-horizontal">
 
-<p>
-  <b>Site:</b>
-  <%= link_to_if @run.site, @run.site, @run.site %>
-</p>
+			<dt>Model</dt>
+			<dd><%= link_to_if @run.model, @run.model, @run.model %></dd>
 
-<p>
-  <b>Start Time:</b>
-  <%= @run.start_time %>
-</p>
+			<dt>Site</dt>
+  			<dd><%= link_to_if @run.site, @run.site, @run.site %></dd>
 
-<p>
-  <b>Finsh Time:</b>
-  <%= @run.finish_time %>
-</p>
+  			<dt>Start Time</dt>
+  			<dd><%= @run.start_time %></dd>
 
-<p>
-  <b>Started at:</b>
-  <%= @run.started_at %>
-</p>
+  			<dt>Finsh Time</dt>
+  			<dd><%= @run.finish_time %></dd>
 
-<p>
-  <b>Finshed at:</b>
-  <%= @run.finished_at %>
-</p>
+  			<dt>Started at</dt>
+  			<dd><%= @run.started_at %></dd>
 
-<p>
-  <b>Start date:</b>
-  <%= @run.start_date %>
-</p>
+  			<dt>Finshed at</dt>
+  			<dd><%= @run.finished_at %></dd>
 
-<p>
-  <b>End Date:</b>
-  <%= @run.end_date %>
-</p>
+  			<dt>Start date</dt>
+  			<dd><%= @run.start_date %></dd>
 
-<p>
-  <b>Outdir:</b>
-  <%= @run.outdir %>
-</p>
+  			<dt>End Date</dt>
+  			<dd><%= @run.end_date %></dd>
+  			
+  			<dt>Outdir</dt>
+  			<dd><%= @run.outdir %></dd>
 
-<p>
-  <b>Outprefix:</b>
-  <%= @run.outprefix %>
-</p>
+  			<dt>Outprefix</dt>
+  			<dd><%= @run.outprefix %></dd>
 
-<p>
-  <b>Setting:</b>
-  <%= @run.setting %>
-</p>
+  			<dt>Setting</dt>
+  			<dd><%= @run.setting %></dd>
 
-<p>
-  <b>Parameter List:</b>
-  <%= @run.parameter_list %>
-</p>
+  			<dt>Parameter List</dt>
+  			<dd><%= @run.parameter_list %></dd>
 
+			</dl>
 
-<%= link_to 'Edit', edit_run_path(@run) %> |
-<%= link_to 'Back', runs_path %>
+			<%= link_to 'Edit', edit_run_path(@run) %> |
+			<%= link_to 'Back', runs_path %>
+		</div><!-- InstanceEndEditable -->
+	</div>	<!-- container --> 
+</div>
