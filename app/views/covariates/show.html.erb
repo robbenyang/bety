@@ -1,34 +1,38 @@
-<p>
-  <b>Variable:</b>
-  <%= link_to_if @covariate.variable, @covariate.variable, @covariate.variable %>
-</p>
+<div class="content">
+  <div class="container">
+    <div class="sixteen columns">
+      <header>
+        <h1>Viewing Covariates</h1>
+      </header>
+      <dl class="dl-horizontal">
+        <dt>Variable:</dt>
+        <dd><%= link_to_if @covariate.variable, @covariate.variable, @covariate.variable %></dd>
 
-<p>
-  <b>Species, trait, treatment, and citation associated with this covariate:</b>
-  <%= link_to_if @covariate.trait, @covariate.trait, @covariate.trait %>
-</p>
+        <dt>Species, trait, treatment, and citation associated with this covariate:</dt>
+        <dd><%= link_to_if @covariate.trait, @covariate.trait, @covariate.trait %></dd>
+        <dt>Level:</dt>
+        <dd><%= @covariate.level %></dd>
 
-<p>
-  <b>Level:</b>
-  <%= @covariate.level %>
-</p>
+        <dt>N:</dt>
+        <dd><%= @covariate.n %></dd>
 
-<p>
-  <b>N:</b>
-  <%= @covariate.n %>
-</p>
+        <dt>Stat:</dt>
+        <dd><%= @covariate.stat %></dd>
 
-<p>
-  <b>Stat:</b>
-  <%= @covariate.stat %>
-</p>
+        <dt>Statname:</dt>
+        <dd><%= @covariate.statname %></dd>
+      </dl>
 
-<p>
-  <b>Statname:</b>
-  <%= @covariate.statname %>
-</p>
-
-
-
-<%= link_to 'Edit', edit_covariate_path(@covariate) %> |
-<%= link_to 'Back', covariates_path %>
+      <div class="form-actions">
+        <div class="button-group">
+          <%= link_to( covariates_path ) do %>
+            <button class="button"><i class="icon-arrow-left"></i> Go Back</button>
+          <% end %>
+          <%= link_to( edit_covariate_path(@covariate) ) do %>
+            <button type="submit" class="button button-primary"><i class="icon-edit"></i> Edit Record</button>  
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>  <!--container-->
+</div>  <!--content-->
