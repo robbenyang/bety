@@ -18,27 +18,24 @@
           <td class="center"><%= method.name %></td>
           <td class="center"><%= method.description %></td>
           <td class="center"><%= link_to_if method.citation,method.citation,method.citation %></td>
-					<td class="center ">
-					  <!-- SHOW -->
-					  <%= link_to method, :class => "button button-small", :alt => "show" do %>
-					    <i class="icon-zoom-in"></i>
-					  <% end %>
-					  <!-- EDIT -->
+			<td class="center ">
+			<!-- SHOW -->
+			<%= link_to method, :class => "button button-small", :alt => "show" do %>
+			    <i class="icon-zoom-in"></i>
+			<% end %>
+			<!-- EDIT -->
             <% if current_user.page_access_level <= 3 %>
-					    <%= link_to edit_method_path(method), :class => "button button-small", :alt => "edit" do %>
-					      <i class="icon-edit"></i>
-					    <% end %>
-				    <% end %>
-					  <!-- DELETE -->
+				<%= link_to edit_method_path(method), :class => "button button-small", :alt => "edit" do %>
+					<i class="icon-edit"></i>
+				<% end %>
+			<% end %>
+			<!-- DELETE -->
             <% if current_user.page_access_level == 1 %>
-					    <% if current_user.page_access_level == 1 %>
                 <%= link_to method, :method => :delete, :type => 'method', :confirm => 'Are you sure?', :class=> 'button button-small button-danger', :alt => "delete" do %>
-                  <i class="icon-trash"></i> 
+            		<i class="icon-trash"></i> 
                 <% end %>
-              <% end %>
             <% end %>
-				  </td>
-
+			</td>
         </tr>
       <% end %>
 	  </tbody>

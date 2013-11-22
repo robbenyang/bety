@@ -24,14 +24,33 @@
     <td class="center"><%= site.lon %></td>
     <td class="center"><%= site.espg %></td>
     <td><%= link_to_prototype_window("map", "#{site.id}", { :className => "alphacube", :width => "625", :height => "525", :zIndex => "100", :resizable => "true", :title =>  "#{site.sitename}", :draggable => "true", :wiredDrag => "true", :url => "/sites/map?id=#{site.id}" }) %> <br />
-
     </td>
-    <% if !session["citation"].nil? %>
-    <td><%= link_to 'Link', {:action => "linked", :id => site.id }, :remote => true %></td>
-    <% end %>
-    <td><%= link_to 'Show', site %></td>
-    <td><%= link_to 'Edit', edit_site_path(site) %></td>
-    <td><%= link_to 'Destroy', site, :confirm => 'Are you sure?', :method => :delete %></td>
+    <td class="center ">
+      <!-- USE -->
+      <% if !session["citation"].nil? %>
+        <%= link_to "/sites/linked/#{site.id}", :id => site.id , :remote => true, :class=>"button button-small" do %>
+          <i class="icon-ok"></i>
+        <% end %> 
+      <% end %>
+    
+      <!-- SHOW -->
+      <%= link_to site, :class => "button button-small", :alt => "show" do %>
+          <i class="icon-zoom-in"></i>
+      <% end %>
+      <!-- EDIT -->
+            <% if current_user.page_access_level <= 3 %>
+        <%= link_to edit_site_path(site), :class => "button button-small", :alt => "edit" do %>
+          <i class="icon-edit"></i>
+        <% end %>
+      <% end %>
+      <!-- DELETE -->
+            <% if current_user.page_access_level == 1 %>
+                <%= link_to site, :method => :delete, :type => 'method', :confirm => 'Are you sure?', :class=> 'button button-small button-danger', :alt => "delete" do %>
+                <i class="icon-trash"></i> 
+                <% end %>
+            <% end %>
+    </td>
+
   </tr>
 <% end %>
 </tbody>
