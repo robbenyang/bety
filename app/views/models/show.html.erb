@@ -1,28 +1,39 @@
-<p>
-  <b>Model name:</b>
-  <%= @model.model_name %>
-</p>
+<div class="content">
+  <div class="container">
+    <div class="sixteen columns">
+      <header>
+        <h1>Viewing Models</h1>
+      </header>
 
-<p>
-  <b>Model path:</b>
-  <%= @model.model_type %>
-</p>
+      <dl class="dl-horizontal">
 
-<p>
-  <b>Model path:</b>
-  <%= @model.model_path %>
-</p>
+        <dt>Model name:</dt>
+        <dd><%= @model.model_name %></dd>
 
-<p>
-  <b>Revision:</b>
-  <%= @model.revision %>
-</p>
+        <dt>Model path:</dt>
+        <dd><%= @model.model_type %></dd>
 
-<p>
-  <b>Parent:</b>
-  <%= link_to_if @model.parent, @model.parent, @model.parent %>
-</p>
+        <dt>Model path:</dt>
+        <dd><%= @model.model_path %></dd>
 
+        <dt>Revision:</dt>
+        <dd><%= @model.revision %></dd>
 
-<%= link_to 'Edit', edit_model_path(@model) %> |
-<%= link_to 'Back', models_path %>
+        <dt>Parent:</dt>
+        <dd><%= link_to_if @model.parent, @model.parent, @model.parent %></dd>
+
+      </dl>
+
+      <div class="form-actions">
+        <div class="button-group">
+          <%= link_to( models_path ) do %>
+            <button class="button"><i class="icon-arrow-left"></i> Go Back</button>
+          <% end %>
+          <%= link_to( edit_model_path(@model) ) do %>
+            <button type="submit" class="button button-primary"><i class="icon-edit"></i> Edit Record</button>  
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div> <!-- container --> 
+</div> <!--content-->
